@@ -1,4 +1,0 @@
-import {Canvas} from '@react-three/fiber'; import {OrbitControls} from '@react-three/drei';
-export default function App(){return <div style={{display:'flex',height:'100vh',background:'#111',color:'#fff'}}>
-<aside style={{width:260,padding:20,background:'#1b1b1b'}}><h2>PanelWorks Pro</h2><p>Design • Quote • Manufacture</p><button style={{width:'100%',padding:12}}>+ Wardrobe</button></aside>
-<main style={{flex:1}}><Canvas camera={{position:[8,6,8]}}><ambientLight intensity={1}/><directionalLight position={[5,8,5]}/><mesh rotation={[-Math.PI/2,0,0]}><planeGeometry args={[12,10]}/><meshStandardMaterial color="#8d7b68"/></mesh><gridHelper args={[12,12]}/><mesh position={[0,2,-4]}><boxGeometry args={[2,4,1]}/><meshStandardMaterial color="#5a3e2b"/></mesh><OrbitControls/></Canvas></main></div>}
