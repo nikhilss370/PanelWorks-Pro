@@ -1,35 +1,47 @@
 
-export default function PropertiesPanel() {
-  return (
+export default function PropertiesPanel(){
+
+  const row={
+    marginBottom:"14px"
+  }
+
+  return(
     <div style={{
-      width:240,
+      width:260,
       background:"#1E293B",
       color:"white",
-      padding:16
+      padding:"20px"
     }}>
-      <h3>Properties</h3>
 
-      <p>Width: 2000 mm</p>
-      <p>Height: 2400 mm</p>
-      <p>Depth: 600 mm</p>
+      <h2>Properties</h2>
 
-      <hr/>
+      <div style={row}>
+        Width
+        <input type="range" min="1200" max="3600" defaultValue="2000" style={{width:"100%"}}/>
+      </div>
 
-      <p>Doors: 2</p>
-      <p>Shelves: 5</p>
+      <div style={row}>
+        Height
+        <input type="range" min="1800" max="3000" defaultValue="2400" style={{width:"100%"}}/>
+      </div>
 
-      <hr/>
+      <div style={row}>
+        Depth
+        <input type="range" min="300" max="900" defaultValue="600" style={{width:"100%"}}/>
+      </div>
 
       <button style={{
         width:"100%",
-        padding:"12px",
+        padding:"14px",
         background:"#16A34A",
-        border:"none",
         color:"white",
-        borderRadius:"8px"
+        border:"none",
+        borderRadius:"10px",
+        marginTop:"20px"
       }}>
         Apply Material
       </button>
+
     </div>
-  );
+  )
 }
