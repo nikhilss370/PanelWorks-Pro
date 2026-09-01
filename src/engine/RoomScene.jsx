@@ -1,13 +1,21 @@
 
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { useState } from "react";
 
-function Wardrobe() {
-  return (
-    <group position={[0,2,-3]}>
+function Wardrobe(){
+
+  const [selected,setSelected]=useState(false);
+
+  return(
+    <group
+      position={[0,2,-3]}
+      onClick={()=>setSelected(!selected)}
+    >
+
       <mesh>
         <boxGeometry args={[2,4,0.6]}/>
-        <meshStandardMaterial color="#8B5A2B"/>
+        <meshStandardMaterial color={selected?"#2563EB":"#8B5A2B"}/>
       </mesh>
 
       <mesh position={[-0.45,0,0.31]}>
@@ -19,14 +27,18 @@ function Wardrobe() {
         <boxGeometry args={[0.9,3.9,0.02]}/>
         <meshStandardMaterial color="#FFFFFF"/>
       </mesh>
+
     </group>
   );
 }
 
-export default function RoomScene() {
-  return (
-    <Canvas camera={{ position:[8,6,8] }}>
+export default function RoomScene(){
+
+  return(
+    <Canvas camera={{position:[8,6,8]}}>
+
       <ambientLight intensity={1}/>
+
       <directionalLight position={[5,8,5]}/>
 
       <mesh rotation={[-Math.PI/2,0,0]}>
@@ -39,6 +51,7 @@ export default function RoomScene() {
       <Wardrobe/>
 
       <OrbitControls/>
+
     </Canvas>
   );
 }
