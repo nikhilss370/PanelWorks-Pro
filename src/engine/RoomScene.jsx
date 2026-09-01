@@ -2,25 +2,43 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
+function Wardrobe() {
+  return (
+    <group position={[0,2,-3]}>
+      <mesh>
+        <boxGeometry args={[2,4,0.6]}/>
+        <meshStandardMaterial color="#8B5A2B"/>
+      </mesh>
+
+      <mesh position={[-0.45,0,0.31]}>
+        <boxGeometry args={[0.9,3.9,0.02]}/>
+        <meshStandardMaterial color="#FFFFFF"/>
+      </mesh>
+
+      <mesh position={[0.45,0,0.31]}>
+        <boxGeometry args={[0.9,3.9,0.02]}/>
+        <meshStandardMaterial color="#FFFFFF"/>
+      </mesh>
+    </group>
+  );
+}
+
 export default function RoomScene() {
   return (
-    <Canvas camera={{ position: [8, 6, 8] }}>
-      <ambientLight intensity={1} />
-      <directionalLight position={[5, 8, 5]} />
+    <Canvas camera={{ position:[8,6,8] }}>
+      <ambientLight intensity={1}/>
+      <directionalLight position={[5,8,5]}/>
 
-      <mesh rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[12, 10]} />
-        <meshStandardMaterial color="#8d7b68" />
+      <mesh rotation={[-Math.PI/2,0,0]}>
+        <planeGeometry args={[12,10]}/>
+        <meshStandardMaterial color="#8D7B68"/>
       </mesh>
 
-      <gridHelper args={[12, 12]} />
+      <gridHelper args={[12,12]}/>
 
-      <mesh position={[0, 2, -4]}>
-        <boxGeometry args={[2, 4, 1]} />
-        <meshStandardMaterial color="#5a3e2b" />
-      </mesh>
+      <Wardrobe/>
 
-      <OrbitControls />
+      <OrbitControls/>
     </Canvas>
   );
 }
